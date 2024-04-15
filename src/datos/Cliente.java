@@ -107,5 +107,4 @@ public class Cliente {
 				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", baja=" + baja + ", contacto=" + contacto + "]\n";
 	}
 
-	
 }
