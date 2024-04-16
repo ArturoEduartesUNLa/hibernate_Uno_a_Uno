@@ -107,4 +107,17 @@ public class ClienteDao {
 		}
 		return lista;
 	}
+
+	public Cliente traerClienteYContacto(long idCliente) {
+		Cliente c = null;
+		try {
+			iniciaOperacion();
+			String hql = "from Cliente c inner join fetch c.contacto where c.IdCliente = :IdCliente";
+			c = (Cliente) session.createQuery(hql, Cliente.class).setParameter("idCliente", idCliente);
+
+		} finally {
+			session.close();
+		}
+		return c;
+	}
 }
