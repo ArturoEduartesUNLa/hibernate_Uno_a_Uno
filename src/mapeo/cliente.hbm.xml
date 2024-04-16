@@ -3,7 +3,7 @@
 <hibernate-mapping>
 	<class name="datos.Cliente" table="cliente">
 		<id column="idCliente" name="idCliente">
-			<generator class="identity"> </generator>
+			<generator class="identity"></generator>
 		</id>
 		<property column="apellido" name="apellido" type="string"></property>
 		<property column="nombre" name="nombre" type="string"></property>
