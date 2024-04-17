@@ -1,5 +1,6 @@
 package negocio;
 
+import dao.ClienteDao;
 import dao.ContactoDao;
 import datos.Cliente;
 import datos.Contacto;
@@ -23,7 +24,12 @@ public class ContactoABM {
 		if (cliente.getContacto() != null) {
 			throw new Exception("Cliente Id: " + c.getIdCliente() + " ya posee contacto: " + c.getContacto());
 		}
-		return dao.agregar(new Contacto(email, movil, fijo));
+		cliente.setContacto(new Contacto(email, movil, fijo));
+		ClienteDao clienteDao = new ClienteDao();
+		clienteDao.actualizar(cliente);
+		return (int) cliente.getIdCliente();
+		
+//		return dao.agregar(new Contacto(email, movil, fijo));
 	}
 
 	public void modificar(Contacto c) {

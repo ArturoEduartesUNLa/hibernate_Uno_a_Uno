@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import datos.Cliente;
 import datos.Contacto;
 
 public class ContactoDao {
