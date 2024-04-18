@@ -104,7 +104,7 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", apellido=" + apellido + ", nombre=" + nombre + ", dni=" + dni
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", baja=" + baja + ", contacto=" + contacto + "]\n";
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", baja=" + baja + ",\ncontacto=" + contacto + "]\n";
 	}
 
 }
