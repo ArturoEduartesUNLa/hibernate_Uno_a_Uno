@@ -1,5 +1,7 @@
 package negocio;
 
+import java.util.List;
+
 import dao.ClienteDao;
 import dao.ContactoDao;
 import datos.Cliente;
@@ -13,6 +15,10 @@ public class ContactoABM {
 
 	}
 
+	public List<Contacto> traer(){
+		return dao.traer();
+	}
+	
 	public int agregar(String email, String movil, String fijo, Cliente c) throws Exception {
 		
 		// validar excepciones

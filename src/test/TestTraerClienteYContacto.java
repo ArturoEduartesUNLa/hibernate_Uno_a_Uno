@@ -3,7 +3,11 @@ package test;
 import datos.Cliente;
 import negocio.ClienteABM;
 
-public class TestTraerClienteYContacto {
+/* COMPLETE el metodo traer siempre devuelve, en caso de existir,
+ * el contacto asociado a un cliente
+ */
+public class TestTraerClienteYContacto { 
+
 
 	public static void main(String[] args) {
 		ClienteABM abmCliente = new ClienteABM();

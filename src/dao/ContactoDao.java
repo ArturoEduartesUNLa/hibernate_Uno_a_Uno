@@ -80,6 +80,7 @@ public class ContactoDao {
 	public List<Contacto> traer() {
 		List<Contacto> lista = new ArrayList<Contacto>();
 		try {
+			iniciarOperacion();
 			Query<Contacto> qry = session.createQuery("from Contacto c order by c.idContacto asc", Contacto.class);
 			lista = qry.getResultList();
 		} finally {
@@ -87,5 +88,5 @@ public class ContactoDao {
 		}
 		return lista;
 	}
-	
+
 }

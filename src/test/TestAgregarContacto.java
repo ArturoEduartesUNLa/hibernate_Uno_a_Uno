@@ -1,39 +1,32 @@
 package test;
 
-import java.time.LocalDate;
-
 import datos.Cliente;
-import datos.Contacto;
 import negocio.ClienteABM;
 import negocio.ContactoABM;
 
+/* COMPLETE el metodo agregar no guarda el contacto como atributo, aunque si necesita el
+ * identificador (ID) de un contacto existente porque las reglas de negocio de la base de datos
+ * no permiten registrar un contacto huerfano
+ */
 public class TestAgregarContacto {
 
 	public static void main(String[] args) {
+		
 		ClienteABM abmCliente = new ClienteABM();
 		ContactoABM abmContacto = new ContactoABM();
-
-		Cliente cliente = abmCliente.traer(14000001);
-		System.out.println(cliente);
-		cliente.setNombre("pirulo1");
-	
-		cliente.setContacto(new Contacto("CharlyG@music", "9876543", "Re_fijo"));
-		  try { 
-			  abmCliente.modificar(cliente);
-		  System.out.println(abmCliente.traer(2L)); } catch (Exception e) {
-		  e.printStackTrace(); }
 		
-
+		Cliente cliente = abmCliente.traer(2L);
+		int idContacto = 0;
+		
 		try {
-			long idClie = abmCliente.agregar("1", "2", 14000004, LocalDate.of(1960, 9, 10), false,
-					new Contacto("jnicholson@unla.edu.ar", "22-2222-2222", "022-2222-2222"));
-			System.out.println(abmCliente.traer(idClie));
+			System.out.println("\nTest agregar Contacto");
+			idContacto = abmContacto.agregar("rgarcia@unla.edu.ar", "99-9999-9999", "099-9999-9999", cliente);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		
+		
+		System.out.println(abmContacto.traer());
 
 	}
 }
