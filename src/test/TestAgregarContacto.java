@@ -5,11 +5,13 @@ import java.time.LocalDate;
 import datos.Cliente;
 import datos.Contacto;
 import negocio.ClienteABM;
+import negocio.ContactoABM;
 
 public class TestAgregarContacto {
 
 	public static void main(String[] args) {
 		ClienteABM abmCliente = new ClienteABM();
+		ContactoABM abmContacto = new ContactoABM();
 
 		Cliente cliente = abmCliente.traer(14000001);
 		System.out.println(cliente);
@@ -24,7 +26,12 @@ public class TestAgregarContacto {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+try {
+	abmContacto.agregar("mail", "movil", "fijo", abmCliente.traer(2L));
+} catch (Exception e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
 		/*
 		 * try { //abmCliente.modificar(cliente);
 		 * System.out.println(abmCliente.traer(2L)); } catch (Exception e) {

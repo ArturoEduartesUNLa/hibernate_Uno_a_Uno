@@ -14,6 +14,11 @@ public class ContactoABM {
 	}
 
 	public int agregar(String email, String movil, String fijo, Cliente c) throws Exception {
+		
+		// validar excepciones
+		if(c == null)
+			throw new Exception("se necesita un cliente al cual agregar el contacto: ");
+		
 		Cliente cliente = new ClienteABM().traer(c.getDni());
 
 		// lanzar excepcion si cliente no existe
@@ -24,13 +29,13 @@ public class ContactoABM {
 		if (cliente.getContacto() != null) {
 			throw new Exception("Cliente Id: " + c.getIdCliente() + " ya posee contacto: " + c.getContacto());
 		}
+		
 		cliente.setContacto(new Contacto(email, movil, fijo));
 		dao.agregar(cliente.getContacto());
 		ClienteABM abmCliente = new ClienteABM();
 		abmCliente.modificar(cliente);
 		return (int) cliente.getIdCliente();
 		
-//		return dao.agregar(new Contacto(email, movil, fijo));
 	}
 
 	public void modificar(Contacto c) {
