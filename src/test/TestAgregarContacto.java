@@ -16,7 +16,13 @@ public class TestAgregarContacto {
 		Cliente cliente = abmCliente.traer(14000001);
 		System.out.println(cliente);
 		cliente.setNombre("pirulo1");
-		System.out.println(cliente);
+	
+		cliente.setContacto(new Contacto("CharlyG@music", "9876543", "Re_fijo"));
+		  try { 
+			  abmCliente.modificar(cliente);
+		  System.out.println(abmCliente.traer(2L)); } catch (Exception e) {
+		  e.printStackTrace(); }
+		
 
 		try {
 			long idClie = abmCliente.agregar("1", "2", 14000004, LocalDate.of(1960, 9, 10), false,
@@ -26,17 +32,8 @@ public class TestAgregarContacto {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-try {
-	abmContacto.agregar("mail", "movil", "fijo", abmCliente.traer(2L));
-} catch (Exception e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-		/*
-		 * try { //abmCliente.modificar(cliente);
-		 * System.out.println(abmCliente.traer(2L)); } catch (Exception e) {
-		 * e.printStackTrace(); }
-		 */
+
+		
 
 	}
 }

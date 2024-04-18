@@ -31,10 +31,10 @@ public class ContactoABM {
 		}
 		
 		cliente.setContacto(new Contacto(email, movil, fijo));
-		dao.agregar(cliente.getContacto());
-		ClienteABM abmCliente = new ClienteABM();
-		abmCliente.modificar(cliente);
-		return (int) cliente.getIdCliente();
+		return (int) dao.agregar(cliente.getContacto());
+		//ClienteABM abmCliente = new ClienteABM();
+		//abmCliente.modificar(cliente);
+		//return (int) cliente.getIdCliente();
 		
 	}
 
