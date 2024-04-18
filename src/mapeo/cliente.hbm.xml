@@ -7,11 +7,11 @@
 		</id>
 		<property column="apellido" name="apellido" type="string"></property>
 		<property column="nombre" name="nombre" type="string"></property>
-		<property column="dni" name="dni" type="long"></property>
+		<property column="dni" name="dni" type="int"></property>
 		<property column="fechaDeNacimiento" name="fechaDeNacimiento" type="LocalDate"></property>
 		<property column="baja" name="baja" type="boolean"></property>
 		
-		<one-to-one name="contacto" class="datos.Contacto"></one-to-one>
+		<one-to-one name="contacto" class="datos.Contacto" cascade="save-update"></one-to-one>
 		
 	</class>
 	

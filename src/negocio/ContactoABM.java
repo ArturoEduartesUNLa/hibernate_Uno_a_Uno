@@ -25,8 +25,9 @@ public class ContactoABM {
 			throw new Exception("Cliente Id: " + c.getIdCliente() + " ya posee contacto: " + c.getContacto());
 		}
 		cliente.setContacto(new Contacto(email, movil, fijo));
-		ClienteDao clienteDao = new ClienteDao();
-		clienteDao.actualizar(cliente);
+		dao.agregar(cliente.getContacto());
+		ClienteABM abmCliente = new ClienteABM();
+		abmCliente.modificar(cliente);
 		return (int) cliente.getIdCliente();
 		
 //		return dao.agregar(new Contacto(email, movil, fijo));

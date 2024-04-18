@@ -24,11 +24,11 @@ public class ContactoDao {
 		throw new HibernateException("error en la capa de datos: " + he);
 	}
 
-	public int agregar(Contacto c) {
-		int id = 0;
+	public long agregar(Contacto c) {
+		long id = 0;
 		try {
 			iniciarOperacion();
-			id = (int) session.save(c);
+			id = (long) session.save(c);
 			tx.commit();
 		} catch (HibernateException he) {
 			manejarExcepcion(he);

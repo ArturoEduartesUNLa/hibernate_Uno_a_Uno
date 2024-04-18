@@ -12,6 +12,8 @@ public class TestTraerClienteYContacto {
 		Cliente c = abmCliente.traer(idCliente);
 
 		System.out.println("\nCliente y contacto" + c);
+		
+		System.out.println(abmCliente.traer(14000001));
 
 	}
 

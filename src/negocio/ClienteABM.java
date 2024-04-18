@@ -22,12 +22,17 @@ public class ClienteABM {
 		return dao.traer();
 	}
 
-	public int agregar(String apellido, String nombre, int dni, LocalDate fechaDeNacimiento, boolean baja,
+	public long agregar(String apellido, String nombre, int dni, LocalDate fechaDeNacimiento, boolean baja,
 			Contacto contacto) throws Exception {
-		if (traer(dni) != null) {
+		if(traer(dni)!= null)
+		{
 			throw new Exception("Existe DNI: " + dni);
 		}
-		return dao.agregar(new Cliente(apellido, nombre, dni, fechaDeNacimiento, baja, contacto));
+		
+		Cliente clte = traer(dao.agregar(new Cliente(apellido, nombre, dni, fechaDeNacimiento, baja, null)));
+		ContactoABM abmContacto = new ContactoABM();
+		abmContacto.agregar(contacto.getEmail(),contacto.getMovil(),contacto.getFijo(), clte);
+		return clte.getIdCliente();
 	}
 
 	public void eliminar(long idCliente) throws Exception {
