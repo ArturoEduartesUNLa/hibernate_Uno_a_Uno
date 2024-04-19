@@ -25,7 +25,6 @@ public class TestAgregarContacto {
 			e.printStackTrace();
 		}
 		
-		
 		System.out.println(abmContacto.traer());
 
 	}

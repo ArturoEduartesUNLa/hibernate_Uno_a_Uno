@@ -30,8 +30,13 @@ public class ClienteABM {
 		}
 		
 		Cliente clte = traer(dao.agregar(new Cliente(apellido, nombre, dni, fechaDeNacimiento, baja, null)));
-		ContactoABM abmContacto = new ContactoABM();
-		abmContacto.agregar(contacto.getEmail(),contacto.getMovil(),contacto.getFijo(), clte);
+		if(contacto != null)
+		// si se pasa un contacto como parametro se lo asocia al cliente (se agrega entrada en database)	
+		{
+			ContactoABM abmContacto = new ContactoABM();
+			abmContacto.agregar(contacto.getEmail(), contacto.getMovil(), contacto.getFijo(), clte);
+		}
+		
 		return clte.getIdCliente();
 	}
 
