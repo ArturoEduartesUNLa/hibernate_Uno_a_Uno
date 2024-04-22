@@ -24,19 +24,19 @@ public class ClienteABM {
 
 	public long agregar(String apellido, String nombre, int dni, LocalDate fechaDeNacimiento, boolean baja,
 			Contacto contacto) throws Exception {
-		if(traer(dni)!= null)
-		{
+		if (traer(dni) != null) {
 			throw new Exception("Existe DNI: " + dni);
 		}
-		
+
 		Cliente clte = traer(dao.agregar(new Cliente(apellido, nombre, dni, fechaDeNacimiento, baja, null)));
-		if(contacto != null)
-		// si se pasa un contacto como parametro se lo asocia al cliente (se agrega entrada en database)	
+		if (contacto != null)
+		// si se pasa un contacto como parametro se lo asocia al cliente (se agrega
+		// entrada en database)
 		{
 			ContactoABM abmContacto = new ContactoABM();
 			abmContacto.agregar(contacto.getEmail(), contacto.getMovil(), contacto.getFijo(), clte);
 		}
-		
+
 		return clte.getIdCliente();
 	}
 
@@ -44,6 +44,10 @@ public class ClienteABM {
 		Cliente c = null;
 		if ((c = traer(idCliente)) == null) {
 			throw new Exception("Id no existe en BD: " + idCliente);
+		}
+		if (new ContactoABM().traer(idCliente) != null) // primero eliminar contacto
+		{
+			new ContactoABM().eliminar(idCliente);
 		}
 		dao.eliminar(c);
 	}
