@@ -24,11 +24,11 @@ public class ClienteDao {
 		throw new HibernateException("error en las capa de datos:" + he);
 	}
 
-	public int agregar(Cliente c) {
-		int id = 0;
+	public long agregar(Cliente c) {
+		long id = 0;
 		try {
 			iniciaOperacion();
-			id = (int) session.save(c);
+			id = (long) session.save(c);
 			tx.commit();
 
 		} catch (HibernateException he) {
@@ -88,7 +88,6 @@ public class ClienteDao {
 			iniciaOperacion();
 			cliente = session.createQuery("from Cliente c where c.dni = :dni", Cliente.class).setParameter("dni", dni)
 					.uniqueResult();
-
 		} finally {
 			session.close();
 		}

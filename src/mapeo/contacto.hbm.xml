@@ -3,12 +3,11 @@
 <hibernate-mapping>
 	<class name="datos.Contacto" table="contacto">
 		<id column="idContacto" name="idContacto">
-			<generator class="foreign">
-				<param name="property">cliente</param>
-			</generator>
+			<!-- Toma por defecto assigned por lo cual puede no indicarse <generator class="assigned"/> -->			
 		</id>
 		<property column="email"  name="email" type="string"></property>
 		<property column="movil"  name="movil" type="string"></property>
 		<property column="fijo"  name="fijo" type="string"></property>
+		 
 	</class>
 </hibernate-mapping>

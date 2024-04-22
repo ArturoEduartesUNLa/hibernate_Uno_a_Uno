@@ -24,11 +24,11 @@ public class ContactoDao {
 		throw new HibernateException("error en la capa de datos: " + he);
 	}
 
-	public int agregar(Contacto c) {
-		int id = 0;
+	public long agregar(Contacto c) {
+		long id = 0;
 		try {
 			iniciarOperacion();
-			id = (int) session.save(c);
+			id = (long) session.save(c);
 			tx.commit();
 		} catch (HibernateException he) {
 			manejarExcepcion(he);
@@ -80,6 +80,7 @@ public class ContactoDao {
 	public List<Contacto> traer() {
 		List<Contacto> lista = new ArrayList<Contacto>();
 		try {
+			iniciarOperacion();
 			Query<Contacto> qry = session.createQuery("from Contacto c order by c.idContacto asc", Contacto.class);
 			lista = qry.getResultList();
 		} finally {
@@ -87,5 +88,5 @@ public class ContactoDao {
 		}
 		return lista;
 	}
-	
+
 }

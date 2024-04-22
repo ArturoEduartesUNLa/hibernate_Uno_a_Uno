@@ -7,7 +7,7 @@ public class Cliente {
 	private long idCliente;
 	private String apellido;
 	private String nombre;
-	private long dni;
+	private int dni;
 	private LocalDate fechaDeNacimiento;
 	private boolean baja;
 	private Contacto contacto;
@@ -16,7 +16,7 @@ public class Cliente {
 		super();
 	}
 
-	public Cliente(String apellido, String nombre, long dni, LocalDate fechaDeNacimiento, boolean baja,
+	public Cliente(String apellido, String nombre, int dni, LocalDate fechaDeNacimiento, boolean baja,
 			Contacto contacto) {
 		super();
 		this.apellido = apellido;
@@ -51,11 +51,11 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	public long getDni() {
+	public int getDni() {
 		return dni;
 	}
 
-	public void setDni(long dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 
@@ -80,6 +80,11 @@ public class Cliente {
 	}
 
 	public void setContacto(Contacto contacto) {
+		if(contacto != null)
+		{
+			contacto.setIdContacto(getIdCliente());
+		}
+		
 		this.contacto = contacto;
 	}
 
@@ -104,7 +109,7 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", apellido=" + apellido + ", nombre=" + nombre + ", dni=" + dni
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", baja=" + baja + ", contacto=" + contacto + "]\n";
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", baja=" + baja + ",\ncontacto=" + contacto + "]\n";
 	}
 
 }
