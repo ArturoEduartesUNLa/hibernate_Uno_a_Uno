@@ -11,20 +11,20 @@ import negocio.ContactoABM;
 public class TestAgregarContacto {
 
 	public static void main(String[] args) {
-		
+
+		System.out.println("UC 1 - agregar Contacto\n");
 		ClienteABM abmCliente = new ClienteABM();
 		ContactoABM abmContacto = new ContactoABM();
-		
+
 		Cliente cliente = abmCliente.traer(4L);
-		
-		
+
 		try {
 			System.out.println("\nTest agregar Contacto");
 			abmContacto.agregar("rgarcia@unla.edu.ar", "99-9999-9999", "099-9999-9999", cliente);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println(abmContacto.traer());
 
 	}

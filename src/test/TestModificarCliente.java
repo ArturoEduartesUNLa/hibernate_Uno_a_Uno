@@ -2,7 +2,9 @@ package test;
 
 import java.time.LocalTime;
 
+import datos.Cliente;
 import datos.Contacto;
+import negocio.ClienteABM;
 import negocio.ContactoABM;
 
 /* COMPLETE
@@ -11,14 +13,22 @@ import negocio.ContactoABM;
 public class TestModificarCliente {
 
 	public static void main(String[] args) {
-		System.out.println(new ContactoABM().traer(2)); // traer por IdContacto
+		
+		System.out.println("UC 2 - modificar Cliente\n");
+		System.out.println(new ClienteABM().traer(4L)); // traer por IdCliente
 
 		// modificar
-		Contacto contactoMod = new ContactoABM().traer(2);
-		contactoMod.setEmail(contactoMod.getEmail() + "_" + LocalTime.now().getSecond());
+		Cliente clienteMod = new ClienteABM().traer(4L);
+		clienteMod.setNombre(clienteMod.getNombre() + "_" + LocalTime.now().getSecond());
 
-		new ContactoABM().modificar(contactoMod);
-		System.out.println(new ContactoABM().traer(2)); // traer por IdContacto
+		try {
+			new ClienteABM().modificar(clienteMod);
+			System.out.println(new ClienteABM().traer(4L)); // traer por IdCliente
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 	}
 }

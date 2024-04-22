@@ -11,6 +11,8 @@ import negocio.ContactoABM;
 public class TestModificarContacto {
 
 	public static void main(String[] args) {
+		
+		System.out.println("UC 2 - modificar Contacto\n");
 		System.out.println(new ContactoABM().traer(2)); // traer por IdContacto
 
 		// modificar

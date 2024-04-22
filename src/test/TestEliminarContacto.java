@@ -10,6 +10,7 @@ public class TestEliminarContacto {
 
 	public static void main(String[] args) {
 
+		 System.out.println("UC 3 - eliminar Contacto\n");
 		Contacto eliminarContacto = new ContactoABM().traer(4L);
 		System.out.println(eliminarContacto);
 
