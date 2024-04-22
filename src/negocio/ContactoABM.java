@@ -49,9 +49,10 @@ public class ContactoABM {
 	}
 
 	public void eliminar(long IdContacto) throws Exception {
-		if (traer(IdContacto) == null) {
+		Contacto eliminaContacto;
+		if ((eliminaContacto = traer(IdContacto)) == null) {
 			throw new Exception("no existe contacto: " + IdContacto);
 		}
-		dao.eliminar(null);
+		dao.eliminar(eliminaContacto);
 	}
 }
