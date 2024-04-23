@@ -3,9 +3,7 @@ package test;
 import java.time.LocalTime;
 
 import datos.Cliente;
-import datos.Contacto;
 import negocio.ClienteABM;
-import negocio.ContactoABM;
 
 /* COMPLETE
  * 

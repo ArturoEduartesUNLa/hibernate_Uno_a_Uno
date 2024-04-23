@@ -2,7 +2,6 @@ package negocio;
 
 import java.util.List;
 
-import dao.ClienteDao;
 import dao.ContactoDao;
 import datos.Cliente;
 import datos.Contacto;
@@ -38,10 +37,6 @@ public class ContactoABM {
 		
 		cliente.setContacto(new Contacto(email, movil, fijo));
 		return (int) dao.agregar(cliente.getContacto());
-		//ClienteABM abmCliente = new ClienteABM();
-		//abmCliente.modificar(cliente);
-		//return (int) cliente.getIdCliente();
-		
 	}
 
 	public void modificar(Contacto c) {
