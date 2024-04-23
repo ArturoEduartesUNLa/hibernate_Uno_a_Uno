@@ -3,10 +3,8 @@ package test;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import datos.Cliente;
 import datos.Contacto;
 import negocio.ClienteABM;
-import negocio.ContactoABM;
 
 /*COMPLETE ver en la definicion del metodo agregar la estrategia utilizada en cada caso
  * con y sin contacto asociado
